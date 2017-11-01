@@ -32,7 +32,7 @@ Create a docker image for the [app.py](app.py) python service with all it's requ
 
 ### Deployment
 
-Publish the created iamge on a public docker registry, like [docker hub](https://hub.docker.com/)
+Publish the created image on a public docker registry, like [docker hub](https://hub.docker.com/).  
 Create a service configuration json file to deploy the service on your DC/OS cluster.
 
 ### Extra Points
