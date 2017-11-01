@@ -24,7 +24,7 @@ You'll need a linux machine with the ability to run VMs.
 ## Ready for action?
 
 Great!!
-As a DevOps we need you to create a mechanism to deploy nanoservices. You'll be in charge of deploy, monitor, scaleapplications and promote the DevOps culture with the development team. But let's start by the begining, below you'll find the requirements for this test.
+As a DevOps we need you to create a mechanism to deploy nanoservices. You'll be in charge of deploy, monitor, scale applications and promote the DevOps culture with the development team. But let's start by the begining, below you'll find the requirements for this test.
 
 ### Dockerize python services
 
