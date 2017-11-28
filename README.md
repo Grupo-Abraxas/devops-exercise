@@ -41,11 +41,13 @@ Create a service configuration json file to deploy the service on your DC/OS clu
 
 ## Deliverables
 
-A Github pull request containing:
+- A link to the public docker registry where the image is published.
 
-1. The Dockerfile(s) for the image(s).
-2. The marathon file(s) for the service deployment(s).
-3. Optionally the code for the improved version of the service.
+- A Github pull request containing:
+
+    1. The Dockerfile(s) for the image(s).
+    2. The marathon file(s) for the service deployment(s). The deployment should be replicable on our marathon cluster.
+    3. Optionally the code for the improved version of the service.
 
 ## General Guidelines
 
