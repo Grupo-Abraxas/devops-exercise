@@ -2,14 +2,15 @@
   "id": "/hello", 
   "instances": 1, 
   "cpus": 1, 
-  "mem": 512, 
+  "mem": 512,
+  "cmd": "python app.py", 
   "container": { 
     "type": "DOCKER", 
     "docker": { 
       "image": "pelacuashero/devops-exercise", 
       "network": "BRIDGE", 
       "portMappings": [{ 
-        "containerPort": 80, 
+        "containerPort": 5000, 
         "protocol": "tcp" 
       }] 
     } 
