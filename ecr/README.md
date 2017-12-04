@@ -2,14 +2,14 @@
 URL: https://hub.docker.com/r/ecamarillor/dockerize_pyapp/
 
 ## Despliegue en un cluster con marathon
-Para permitir la escalabilidad de los contenedores, sea aprovechada; antes de desplegar el servicio (marathon.json), instalaremos un balanceador de carga llamado marathon-lb. Dicho balanceador, permitirá que las instancias de Docker sean aprovechadas ante la posibilidad de alta demanda del servicio; permitiendo agregar más instancias en caso de ser requeridas o disminuir su número en caso de que la demanda sea mínima.
+Para permitir la escalabilidad de los contenedores sea aprovechada; antes de desplegar el servicio (marathon.json), instalaremos un balanceador de carga llamado marathon-lb. Dicho balanceador, permitirá que las instancias de Docker sean aprovechadas ante la posibilidad de alta demanda del servicio; permitiendo agregar más instancias en caso de ser requeridas o disminuir su número en caso de que la demanda sea mínima.
 
-Cabe mencionar que derivados de los recursos técnicos con los que cuenta mi equipo de cómputo, adjunto el archivo de configuración del cluster con Vagrant (VagrantConfig.yaml).
+Cabe mencionar que derivado de los recursos técnicos con los que cuenta mi equipo de cómputo, adjunto el archivo de configuración del cluster con Vagrant (VagrantConfig.yaml).
 
 ### Instrucciones
 1. Desde la línea de comandos hay que autenticarse con el siguiente comando:
 `$ docker auth login`
-Hay que seguir las instrucciones y pegar el token de autenticación.
+Hay que seguir las instrucciones y pegar el token de autenticación cuando sea requerido.
 > MacBook-Air-de-Eduardo:ecr eduardo.camarillo$ dcos auth login
 > If your browser didn't open, please go to the following link:
 > 
@@ -27,7 +27,7 @@ Hay que seguir las instrucciones y pegar el token de autenticación.
 > Installing Marathon app for package [marathon-lb] version [1.11.1]
 > Package is already installed
 3. Despliegue del servicio (marathon.json):
-`docs marathon app add marathon`
+`docs marathon app add marathon.json`
 > Created deployment 7107bdbf-f534-454a-98bb-f294d171a170
 
 Al finalizar el despliegue del servicio en http://m1.dcos/#/services/overview, es posible verificar que las 3 instancias iniciales que se crean de la imagen de docker (ecamarillor/dockerize_pyapp) son balanceadas desde el agente público por la dirección IP: 192.168.65.60
