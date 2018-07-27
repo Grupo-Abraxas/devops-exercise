@@ -12,14 +12,12 @@ You'll need a linux machine with the ability to run VMs.
 
 1. Install [Docker](https://www.docker.com/)
 2. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-3. Install [Vagrant](https://www.vagrantup.com/downloads.html)
-4. Install [DC/OS Vagrant](https://github.com/dcos/dcos-vagrant)
-5. Install [DC/OS CLI](https://github.com/dcos/dcos-cli)
+3. Install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+4. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+5. Configure your client to use your local kubernetes cluster.
 6. Fork this repository, then clone it locally.
-7. Start your DC/OS Vagrant cluster. If your local machine doesn't meet the recomended specs you can use this [VagrantConfig.yaml](VagrantConfig.yaml).
-8. Configure your DC/OS CLI to work with your cluster.
 
-**Important:** the infraestructure should work out of the box. There's no hidden part of the exersice in which you need to debug vagrant/virtualbox
+**Important:** the infraestructure should work out of the box. There's no hidden part of the exersice in which you need to debug virtualbox
 
 ## Ready for action?
 
@@ -33,7 +31,7 @@ Create a docker image for the [app.py](app.py) python service with all it's requ
 ### Deployment
 
 Publish the created image on a public docker registry, like [docker hub](https://hub.docker.com/).  
-Create a service configuration json file to deploy the service on your DC/OS cluster.
+Create a service configuration json file to deploy the service on your kubernetes cluster.
 
 ### Extra Points
 
@@ -46,7 +44,7 @@ Create a service configuration json file to deploy the service on your DC/OS clu
 - A Github pull request containing:
 
     1. The Dockerfile(s) for the image(s).
-    2. The marathon file(s) for the service deployment(s). The deployment should be replicable on our marathon cluster.
+    2. The kubernetes file(s) for the service deployment(s). The deployment should be replicable on our kubernetes cluster.
     3. Optionally the code for the improved version of the service.
 
 ## General Guidelines
@@ -59,5 +57,5 @@ Spend some time on designing your solution. Think about operational use cases fr
 
 ## Reference
 
-- [Deploying a Docker-based Service](https://dcos.io/docs/1.10/deploying-services/creating-services/deploy-docker-app/)
+- [Run a Stateless Application Using a Deployment](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/)
 
