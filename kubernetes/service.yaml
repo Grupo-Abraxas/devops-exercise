@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Service
+metada:
+  name: devops-excercise
+spec:
+  select:
+    app: web
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
