@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-exercise
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels: 
+        app: web
+    spec:
+      containers:
+      - name: devops-exercise
+        image: krodriguez/devops-exercise:latest
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5
