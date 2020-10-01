@@ -14,6 +14,7 @@ You'll need:
 2. A docker hub account
 3. Access to a kubernetes cluster for testing purposes (It can be Minikube or any other public or private option)
 4. Fork this repository, then clone it locally.
+5.An Aws account
 
 ## Ready for action?
 
