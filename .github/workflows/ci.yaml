@@ -1,0 +1,76 @@
+name: Continuous-Integration
+on:
+  push:
+    branches:
+      - development
+      - master
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version}}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version}}
+      # Unit-Test
+      - name: Running Unit-Test
+        run: |
+          pip install flask_testing
+          python -m unittest tests/test_base.py
+      # Snyk
+      - name: Vulnerability Scanner
+        uses: snyk/actions/python@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          args: --file=requirements.txt --command=python3 --package-manager=pip --skip-unresolved=true
+      # DockerHub
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      # Building and Pushing images to Dockerhub
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        env:
+          CONTAINER_VERSION: 1.0.${{github.run_number}}
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: oalva/demopython-app:${{ env.CONTAINER_VERSION }}
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: test-and-build
+    steps:
+      - uses: actions/checkout@v2
+      # Kustomize
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.6.1"
+      - name: Update Kubernetes resources
+        env:
+          CONTAINER_VERSION: 1.0.${{github.run_number}}
+        run: |
+          cd kustomize/base
+          kustomize edit set image demopython-gitops=oalva/demopython-app:${{ env.CONTAINER_VERSION }}
+          cat kustomization.yaml
+      # Git Push
+      - name: Commit files
+        run: |
+          git config --local user.email "${{ secrets.USER_EMAIL }}"
+          git config --local user.name "${{ secrets.USER_NAME }}"
+          git commit -am "New deployment"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GIT_TOK }}
+          branch: ${{ github.ref }}

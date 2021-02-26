@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deploy.yaml
+namespace: arkondata
+images:
+  - name: arkondata-gitops
+    newName: oalva/arkondata-app
+    newTag: latest
