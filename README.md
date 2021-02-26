@@ -55,6 +55,10 @@ kustomize edit set image arkondata-gitops=oalva/arkondata-app:${{ env.CONTAINER_
 
 <img src="images/argocd.png" width="650px" height="350px">
 
+- When a new version is detected apply Rolling Update for keep the traffic without break-down the service.
+
+<img src="images/rollingupdate.png" width="650px" height="350px">
+
 To test the service:
 
 - **GET** request: Give actual number.
