@@ -16,10 +16,8 @@ As a DevOps we need you to create a mechanism to deploy nanoservices. You'll be 
 
 ---
 
-- | -
-  ------------- | -------------
-  [Snyk](https://snyk.io/) | [Kustomize](https://kustomize.io/)
-  [Github Actions](https://github.com/features/actions) | [ArgoCD](https://argo-cd.readthedocs.io/en/stable/)
+- | [Snyk](https://snyk.io/) | [Kustomize](https://kustomize.io/) |
+  [Github Actions](https://github.com/features/actions) | [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) |
   [DockerHub](https://hub.docker.com/) | [EKS](https://aws.amazon.com/eks/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&eks-blogs.sort-by=item.additionalFields.createdDate&eks-blogs.sort-order=desc)
 
 ## Process
@@ -44,18 +42,18 @@ This DevOps exercise contains the essential elements of the CI/CD process for co
 snyk monitor --file=requirements.txt --command=python3 --package-manager=pip --skip-unresolved=true
 ```
 
-<img src="images/archi.png" width="650px" height="350px">
+<img src="images/snyk.png" width="650px" height="350px">
 
-- Create and upload image to [DockerHub](https://hub.docker.com/r/oalva/demopython-app)
+- Create and upload image to [DockerHub](https://hub.docker.com/r/oalva/arkondata-app)
 - Configuring [YAML files](kustomize/base) using Kustomize
 
 ```sh
-kustomize edit set image demopython-gitops=oalva/arkon-data:${{ env.CONTAINER_VERSION }}
+kustomize edit set image arkondata-gitops=oalva/arkondata-app:${{ env.CONTAINER_VERSION }}
 ```
 
 3. ArgoCD detects an update in the kustomization.yaml file and deploys it to the kubernetes cluster.
 
-<img src="images/archi.png" width="650px" height="350px">
+<img src="images/argocd.png" width="650px" height="350px">
 
 To test the service:
 
@@ -65,7 +63,7 @@ To test the service:
 ## Deliverables
 
 - A link to the public docker registry where the image is published.
-  [Registry](https://hub.docker.com/r/oalva/demopython-app)
+  [Registry](https://hub.docker.com/r/oalva/arkondata-app)
 
 - A link to your repository containing:
 
