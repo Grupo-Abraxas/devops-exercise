@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, redirect, session
+from flask import Flask, request
 
 app = Flask(__name__)
 counter = 1
