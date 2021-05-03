@@ -52,7 +52,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           CONTAINER_VERSION: 1.0.${{github.run_number}}
         with:
-          image: arkondata-app:${{ env.CONTAINER_VERSION }}
+          image: oalva/arkondata-app:${{ env.CONTAINER_VERSION }}
           args: --file=Dockerfile
   deploy:
     name: deploy
