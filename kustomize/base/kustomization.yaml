@@ -6,4 +6,4 @@ namespace: arkondata
 images:
 - name: arkondata-gitops
   newName: oalva/arkondata-app
-  newTag: 1.0.5
+  newTag: 1.0.8
