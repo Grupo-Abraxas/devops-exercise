@@ -3,6 +3,14 @@ kind: Component
 metadata:
   name: devops-exercise
   description: The place to be, for great artists
+  tags:
+    - docker
+    - python
+    - kustomize
+  links:
+    - url: https://hub.docker.com/r/oalva/arkondata-app
+      title: DockerHub
+      icon: cloud
 spec:
   type: website
   lifecycle: production
