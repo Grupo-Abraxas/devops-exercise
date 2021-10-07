@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: devops-exercise
   description: The place to be, for great artists
+  annotations:
+    github.com/project-slug: oalvarez-in/devops-exercise
   tags:
     - docker
     - python
