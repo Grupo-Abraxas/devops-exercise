@@ -5,6 +5,7 @@ metadata:
   description: The place to be, for great artists
   annotations:
     github.com/project-slug: oalvarez-in/devops-exercise
+    backstage.io/techdocs-ref: dir:.
   tags:
     - docker
     - python
