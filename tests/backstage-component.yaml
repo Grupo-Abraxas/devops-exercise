@@ -6,6 +6,7 @@ metadata:
   annotations:
     github.com/project-slug: oalvarez-in/devops-exercise
     backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: azurestage-aks
   tags:
     - docker
     - python
