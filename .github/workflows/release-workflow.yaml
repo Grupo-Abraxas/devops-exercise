@@ -1,7 +1,7 @@
 name: Upload Release
 on:
   release:
-    types: [published]
+    types: [created]
 jobs:
   pre-release:
     if: "github.event.release.prerelease"
