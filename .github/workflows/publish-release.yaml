@@ -1,0 +1,15 @@
+name: Upload Release to Production
+on:
+  release:
+    types: [published]
+jobs:
+  release:
+    if: "github.event.release.prerelease"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        env:
+          image_version: ${{ github.event.release.tag_name }}
+      - run: |
+          echo $image_version
+          echo "This is a test to Exec an action from Release"

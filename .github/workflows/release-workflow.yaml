@@ -1,4 +1,4 @@
-name: Upload Release
+name: Pre-Release created
 on:
   release:
     types: [created]
@@ -9,8 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         env:
-          pre_release: ${{ github.event.release.prerelease }}
+          pre_release: ${{ github.event.release.tag_name }}
       - run: |
           echo $pre_release
           echo "This is a test to Exec an action from prerelease"
-          echo $GIT_CONTEXT
