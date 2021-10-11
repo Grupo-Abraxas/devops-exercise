@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         env:
-          pre_release: ${{ github.event.release.tag_name }}
+          pre_release: ${{ github.ref }}
       - run: |
           echo $pre_release
           echo "This is a test to Exec an action from prerelease"
