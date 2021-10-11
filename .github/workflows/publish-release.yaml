@@ -1,7 +1,7 @@
 name: Upload Release to Production
 on:
   release:
-    types: [published]
+    types: [published, edited, released]
 jobs:
   release:
     if: "!github.event.release.prerelease"
