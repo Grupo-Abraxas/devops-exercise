@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-        env:
-          pre_release: ${{ github.ref }}
       - run: |
           echo $pre_release
           echo "This is a test to Exec an action from prerelease"
+        env:
+          pre_release: ${{ github.event.release.tag_name }}
