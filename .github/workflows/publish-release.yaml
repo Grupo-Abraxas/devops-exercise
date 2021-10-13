@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-        env:
-          image_version: ${{ github.event.release.tag_name }}
       - run: |
           echo $image_version
           echo "This is a test to Exec an action from Release"
+        env:
+          image_version: ${{ github.event.release.tag_name }}
